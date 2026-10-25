@@ -1,0 +1,986 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+SwiggyApp - Order Food Online
+{% endblock %}
+
+
+{% block content %}
+
+
+<!-- =====================================================
+     HERO SECTION
+===================================================== -->
+
+<section class="swiggy-hero">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-7">
+
+                <div class="hero-text">
+
+                    <span class="hero-badge">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                        Fast delivery at your doorstep
+                    </span>
+
+                    <h1>
+                        Order food &
+                        <span>discover the best</span>
+                        restaurants near you
+                    </h1>
+
+                    <p>
+                        From your favourite biryani and pizzas to burgers,
+                        desserts and healthy meals — everything you love,
+                        delivered right to you.
+                    </p>
+
+
+                    <!-- Search -->
+
+                    <div class="hero-search">
+
+                        <i class="bi bi-search"></i>
+
+                        <input type="text"
+                               id="productSearch"
+                               placeholder="Search for dishes, cuisines or food...">
+
+                        <button type="button">
+                            Search
+                        </button>
+
+                    </div>
+
+
+                    <div class="popular-searches">
+
+                        <span>Popular:</span>
+
+                        <a href="#">Pizza</a>
+                        <a href="#">Biryani</a>
+                        <a href="#">Burger</a>
+                        <a href="#">Chinese</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Hero Illustration -->
+
+            <div class="col-lg-5 d-none d-lg-block">
+
+                <div class="hero-food-wrapper">
+
+                    <div class="hero-circle">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85"
+                            alt="Delicious food">
+
+                    </div>
+
+
+                    <div class="hero-floating-card rating-card">
+
+                        <i class="bi bi-star-fill"></i>
+
+                        <div>
+                            <strong>4.8+</strong>
+                            <span>Top rated dishes</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="hero-floating-card delivery-card">
+
+                        <i class="bi bi-lightning-charge-fill"></i>
+
+                        <div>
+                            <strong>30 min</strong>
+                            <span>Fast delivery</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOD CATEGORIES
+===================================================== -->
+
+<section class="home-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+                <h2>What's on your mind?</h2>
+
+                <p>
+                    Explore dishes from your favourite cuisines
+                </p>
+            </div>
+
+
+            <div class="category-controls">
+
+                <button id="categoryLeft">
+                    <i class="bi bi-arrow-left"></i>
+                </button>
+
+                <button id="categoryRight">
+                    <i class="bi bi-arrow-right"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="category-scroll"
+             id="categoryScroll">
+
+
+            <div class="category-item">
+
+                <div class="category-image">
+
+                    <img
+                        src="{% static 'images/food1.jpeg' %}"
+                        alt="Pizza">
+
+                </div>
+
+                <h6>Pizza</h6>
+
+            </div>
+
+
+            <div class="category-item">
+
+                <div class="category-image">
+
+                    <img
+                        src="{% static 'images/food2.jpeg' %}"
+                        alt="Burger">
+
+                </div>
+
+                <h6>Burgers</h6>
+
+            </div>
+
+
+            <div class="category-item">
+
+                <div class="category-image">
+
+                    <img
+                        src="{% static 'images/food3.jpeg' %}"
+                        alt="Biryani">
+
+                </div>
+
+                <h6>Biryani</h6>
+
+            </div>
+
+
+            <div class="category-item">
+
+                <div class="category-image">
+
+                    <img
+                        src="{% static 'images/food9.jpeg' %}"
+                        alt="Noodles">
+
+                </div>
+
+                <h6>Chinese</h6>
+
+            </div>
+
+
+            <div class="category-item">
+
+                <div class="category-image">
+
+                    <img
+                        src="{% static 'images/food7.jpeg' %}"
+                        alt="South Indian">
+
+                </div>
+
+                <h6>South Indian</h6>
+
+            </div>
+
+
+            <div class="category-item">
+
+                <div class="category-image">
+
+                    <img
+                        src="{% static 'images/food10.jpeg' %}"
+                        alt="Samosa">
+
+                </div>
+
+                <h6>Snacks</h6>
+
+            </div>
+
+
+            <div class="category-item">
+
+                <div class="category-image">
+
+                    <img
+                        src="{% static 'images/food8.jpeg' %}"
+                        alt="Desserts">
+
+                </div>
+
+                <h6>Desserts</h6>
+
+            </div>
+
+
+            <div class="category-item">
+
+                <div class="category-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=400&q=80"
+                        alt="Healthy">
+
+                </div>
+
+                <h6>Healthy</h6>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     OFFERS
+===================================================== -->
+
+<section class="offer-section">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6">
+
+                <div class="offer-card offer-orange">
+
+                    <div>
+
+                        <span class="offer-label">
+                            LIMITED OFFER
+                        </span>
+
+                        <h3>
+                            Get 50% OFF
+                        </h3>
+
+                        <p>
+                            On your first food order
+                        </p>
+
+                        <a href="{% url 'order_create' %}">
+                            Order Now
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+
+                    <div class="offer-icon">
+
+                        <i class="bi bi-bag-heart-fill"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="offer-card offer-dark">
+
+                    <div>
+
+                        <span class="offer-label">
+                            FREE DELIVERY
+                        </span>
+
+                        <h3>
+                            Hungry?
+                        </h3>
+
+                        <p>
+                            Delicious food is just a click away
+                        </p>
+
+                        <a href="#restaurants">
+                            Explore Food
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+
+                    <div class="offer-icon">
+
+                        <i class="bi bi-bicycle"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRODUCTS / RESTAURANTS
+===================================================== -->
+
+<section class="home-section"
+         id="restaurants">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <h2>
+                    Restaurants with online food delivery
+                </h2>
+
+                <p>
+                    Delicious meals available near you
+                </p>
+
+            </div>
+
+
+            <a href="{% url 'product_list' %}"
+               class="view-all-link">
+
+                View all
+
+                <i class="bi bi-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- Filters -->
+
+        <div class="filter-buttons">
+
+    <button class="filter-btn active" data-filter="all">
+        All
+    </button>
+
+    <button class="filter-btn" data-filter="rating">
+        <i class="bi bi-star-fill"></i>
+        Ratings 4.0+
+    </button>
+
+    <button class="filter-btn" data-filter="delivery">
+        Fast Delivery
+    </button>
+
+    <button class="filter-btn" data-filter="veg">
+        Pure Veg
+    </button>
+
+    <button class="filter-btn" data-filter="offer">
+        Offers
+    </button>
+
+</div>
+
+
+
+        <div class="row g-4"
+             id="productGrid">
+
+
+            {% for product in products %}
+
+
+           <div class="col-lg-3 col-md-4 col-sm-6 product-column"
+     data-search="{{ product.name|lower }} {{ product.restaurant|lower }} {{ product.description|lower }}"
+     data-rating="{{ product.rating }}"
+     data-delivery="{{ product.delivery_time }}"
+     data-veg="{{ product.is_pure_veg|yesno:'true,false' }}"
+     data-offer="{{ product.has_offer|yesno:'true,false' }}">
+
+
+                <div class="swiggy-product-card">
+
+
+                    <!-- Image -->
+
+                    <div class="product-image-wrapper">
+
+
+                        {% if product.image %}
+
+                            <img
+                                src="{{ product.image.url }}"
+                                class="product-card-image"
+                                alt="{{ product.name }}">
+
+                        {% else %}
+
+                            <div class="product-placeholder">
+
+                                <i class="bi bi-image"></i>
+
+                            </div>
+
+                        {% endif %}
+
+
+
+                        <!-- Discount -->
+
+                        <div class="discount-overlay">
+
+                            20% OFF
+
+                        </div>
+
+
+                        <!-- Favourite -->
+
+                        <button class="favorite-btn">
+
+                            <i class="bi bi-heart"></i>
+
+                        </button>
+
+
+                    </div>
+
+
+
+                    <!-- Details -->
+
+                    <div class="product-card-body">
+
+
+                        <div class="product-title-row">
+
+                            <h5 class="product-name">
+
+                                {{ product.name }}
+
+                            </h5>
+
+
+                            <span class="rating">
+
+                                <i class="bi bi-star-fill"></i>
+
+                                {{ product.rating }}
+
+                            </span>
+
+                        </div>
+
+
+
+                        <p class="product-description">
+
+                            {{ product.description|default:"Delicious freshly prepared food delivered straight to your doorstep." }}
+
+                        </p>
+
+
+
+                        <div class="delivery-info">
+
+                            <span>
+
+                                <i class="bi bi-clock"></i>
+
+                               {{ product.delivery_time }} mins
+
+                            </span>
+
+
+                            <span>
+
+                                <i class="bi bi-geo-alt"></i>
+
+                                2.5 km
+
+                            </span>
+
+                        </div>
+
+
+
+                        <div class="product-bottom">
+
+
+                            <div class="product-price">
+
+                                ₹{{ product.price }}
+
+                            </div>
+
+
+                            {% if product.is_available %}
+
+                                <a href="{% url 'order_create' %}"
+                                   class="add-food-btn">
+
+                                    ADD
+
+                                </a>
+
+                            {% else %}
+
+                                <button class="add-food-btn disabled"
+                                        disabled>
+
+                                    Unavailable
+
+                                </button>
+
+                            {% endif %}
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            {% empty %}
+
+
+            <div class="col-12">
+
+                <div class="empty-products">
+
+                    <i class="bi bi-bag-x"></i>
+
+                    <h4>
+                        No food available
+                    </h4>
+
+                    <p>
+                        Add some products from the Products section.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            {% endfor %}
+
+
+        </div>
+
+
+
+        <!-- Search Empty -->
+
+        <div id="noSearchResults"
+             class="empty-products d-none">
+
+            <i class="bi bi-search"></i>
+
+            <h4>
+                No dishes found
+            </h4>
+
+            <p>
+                Try searching for another food item.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WHY SWIGGY
+===================================================== -->
+
+<section class="why-swiggy">
+
+    <div class="container">
+
+
+        <div class="text-center section-title-centered">
+
+            <h2>
+                Food delivery made simple
+            </h2>
+
+            <p>
+                Everything you need for a delicious experience
+            </p>
+
+        </div>
+
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-4">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+
+                        <i class="bi bi-shop"></i>
+
+                    </div>
+
+                    <h5>
+                        Best Restaurants
+                    </h5>
+
+                    <p>
+                        Choose from a wide variety of restaurants
+                        and cuisines around you.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-4">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+
+                        <i class="bi bi-lightning-charge"></i>
+
+                    </div>
+
+                    <h5>
+                        Lightning Fast
+                    </h5>
+
+                    <p>
+                        Your favourite meals delivered quickly
+                        and safely to your doorstep.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-4">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+
+                        <i class="bi bi-shield-check"></i>
+
+                    </div>
+
+                    <h5>
+                        Safe & Reliable
+                    </h5>
+
+                    <p>
+                        Reliable ordering with simple tracking
+                        throughout your delivery.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+{% endblock %}
+
+
+
+{% block scripts %}
+
+<script>
+
+$(document).ready(function () {
+
+
+    /* =====================================================
+       PRODUCT SEARCH
+    ===================================================== */
+
+   function searchProducts() {
+
+    let searchText =
+        $("#productSearch").val().toLowerCase().trim();
+
+    let visibleProducts = 0;
+
+    $(".product-column").each(function () {
+
+        let searchData =
+            $(this).data("search");
+
+        if (
+            searchData.includes(searchText) ||
+            searchText === ""
+        ) {
+
+            $(this).show();
+            visibleProducts++;
+
+        } else {
+
+            $(this).hide();
+
+        }
+
+    });
+
+    if (visibleProducts === 0) {
+
+        $("#noSearchResults").removeClass("d-none");
+
+    } else {
+
+        $("#noSearchResults").addClass("d-none");
+
+    }
+}
+
+
+$("#productSearch").on("keyup", function () {
+    searchProducts();
+});
+
+
+$(".hero-search button").click(function () {
+
+    searchProducts();
+
+    $("#restaurants")[0].scrollIntoView({
+        behavior: "smooth"
+    });
+
+});
+
+
+
+    /* =====================================================
+       CATEGORY SCROLL
+    ===================================================== */
+
+    $("#categoryRight").click(function () {
+
+        $("#categoryScroll").animate(
+            {
+                scrollLeft:
+                    $("#categoryScroll").scrollLeft() + 350
+            },
+            300
+        );
+
+    });
+
+
+    $("#categoryLeft").click(function () {
+
+        $("#categoryScroll").animate(
+            {
+                scrollLeft:
+                    $("#categoryScroll").scrollLeft() - 350
+            },
+            300
+        );
+
+    });
+
+
+
+    /* =====================================================
+       FAVORITE ICON
+    ===================================================== */
+
+    $(".favorite-btn").click(function () {
+
+        let icon = $(this).find("i");
+
+
+        if (icon.hasClass("bi-heart")) {
+
+            icon
+                .removeClass("bi-heart")
+                .addClass("bi-heart-fill");
+
+            $(this).addClass("favorite-active");
+
+        }
+
+        else {
+
+            icon
+                .removeClass("bi-heart-fill")
+                .addClass("bi-heart");
+
+            $(this).removeClass("favorite-active");
+
+        }
+
+    });
+  /* =====================================================
+   PRODUCT FILTERS
+===================================================== */
+
+$(".filter-btn").click(function () {
+
+    let filter = $(this).data("filter");
+
+    $(".filter-btn").removeClass("active");
+    $(this).addClass("active");
+
+    $(".product-column").each(function () {
+
+        let product = $(this);
+
+        let rating =
+            parseFloat(product.data("rating"));
+
+        let delivery =
+            parseInt(product.data("delivery"));
+
+        let veg =
+            product.data("veg") === true ||
+            product.data("veg") === "true";
+
+        let offer =
+            product.data("offer") === true ||
+            product.data("offer") === "true";
+
+        let show = false;
+
+        if (filter === "all") {
+
+            show = true;
+
+        }
+
+        else if (filter === "rating") {
+
+            show = rating >= 4.0;
+
+        }
+
+        else if (filter === "delivery") {
+
+            show = delivery <= 30;
+
+        }
+
+        else if (filter === "veg") {
+
+            show = veg;
+
+        }
+
+        else if (filter === "offer") {
+
+            show = offer;
+
+        }
+
+        if (show) {
+
+            product.show();
+
+        } else {
+
+            product.hide();
+
+        }
+
+    });
+
+});  
+
+});
+
+</script>
+
+{% endblock %}
